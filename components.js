@@ -420,6 +420,7 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
+  /* ---------- <rm-contact-form> ---------- */
   define("rm-contact-form", class extends RMElement {
     render() {
       this.className = "sticky block";
@@ -435,7 +436,8 @@ define("rm-navbar", class extends RMElement {
 
       this.innerHTML = `<section id="contacto" class="bg-contact px-4 pb-5 pt-14 sm:px-10">
         <div class="mx-auto grid max-w-[1280px] items-end gap-8 md:grid-cols-[1.1fr_1fr]">
-          <form action="https://formsubmit.co/el/${esc(destinationEmail)}" method="POST" class="max-w-[560px] rounded-[26px] bg-cream px-8 pb-8 pt-7">
+          <form action="https://formsubmit.co/${esc(destinationEmail)}" method="POST" class="max-w-[560px] rounded-[26px] bg-cream px-8 pb-8 pt-7">
+            <!-- Configuración de FormSubmit -->
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://remerakidg-lang.github.io/remeraki/#contacto">
@@ -449,47 +451,14 @@ define("rm-navbar", class extends RMElement {
               <textarea name="mensaje" required placeholder="Cuéntame sobre tu proyecto" class="${field} min-h-[150px] resize-y"></textarea>
             </label>
             <div class="text-right">
+              <!-- Botón de envío nativo para garantizar el submit al hacer clic -->
               <button type="submit" class="inline-block rounded-full bg-olive px-10 py-2.5 font-semibold text-cream transition hover:-translate-y-0.5 hover:bg-olive-dark cursor-pointer">Hagámoslo</button>
             </div>
-            <p class="form-ok mt-3 hidden text-center font-semibold text-olive">¡Gracias! Te responderé pronto.</p>
           </form>
           <div class="w-full max-w-[320px] justify-self-center">
             <rm-image-placeholder src="img/personaje3.png" tone="dark" ratio="3/4" label="Ilustración / mascota"></rm-image-placeholder>
           </div>
         </div></section>`;
-
-      const form = this.querySelector("form");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        // Validar que los campos nativos del HTML no estén vacíos
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-
-        try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { 
-              'Accept': 'application/json'
-            }
-          });
-
-          const data = await response.json();
-
-          if (response.ok && (data.success === "true" || data.success === true)) {
-            form.querySelector(".form-ok").classList.remove("hidden");
-            form.reset();
-          } else {
-            console.warn("Respuesta de FormSubmit:", data);
-            alert(data.message || "No se pudo enviar el mensaje.");
-          }
-        } catch (error) {
-          console.error("Error al enviar el formulario:", error);
-        }
-      });
     }
   });
 
