@@ -479,7 +479,7 @@ define("rm-navbar", class extends RMElement {
           <form action="https://formsubmit.co/${esc(destinationEmail)}" method="POST" novalidate class="max-w-[560px] rounded-[26px] bg-cream px-8 pb-8 pt-7">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://cesarirm19.github.io/remeraki/gh auth login#contacto">
+            <input type="hidden" name="_next" value="https://remerakidg-lang.github.io/remeraki/#contacto">
 
             <h2 class="mb-5 text-center font-display text-[1.7rem] font-semibold text-wine">${esc(this.attr("heading", "¿Trabajamos juntos?"))}</h2>
             ${input("nombre", "text", "Nombre", 'required autocomplete="name"')}
