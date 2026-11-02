@@ -1,12 +1,5 @@
 
 
-/* ReMeraki — componentes reutilizables con Tailwind (Custom Elements, sin build)
- *
- * Reemplazar placeholders:
- *   <rm-image-placeholder src="img/foto.jpg" alt="..."></rm-image-placeholder>
- *   <rm-project-card src="img/proyecto.jpg" ...></rm-project-card>
- * Sin `src` se muestra el placeholder.
- */
 (function () {
   "use strict";
 
@@ -18,17 +11,13 @@
       return this.hasAttribute(name) ? this.getAttribute(name) : fallback;
     }
     connectedCallback() {
-      if (this._content === undefined) this._content = this.innerHTML; // contenido original (slot)
+      if (this._content === undefined) this._content = this.innerHTML;
       this.render();
     }
     render() {}
   }
   const define = (tag, cls) => customElements.get(tag) || customElements.define(tag, cls);
 
-  /* Equivalente a useSectionHeight: calcula (alto de ventana - alto del elemento).
-   Es negativo cuando el elemento es más alto que la pantalla, y 0 si cabe.
-   Útil como `top` en `position: sticky` para que una sección alta se vea
-   completa antes de quedarse fija. Devuelve una función para desconectar. */
   function observeSectionHeight(el, onChange, offsetEl) {
     const update = () => {
       const offset = offsetEl ? offsetEl.getBoundingClientRect().height : 0;
@@ -37,7 +26,7 @@
     };
     const observer = new ResizeObserver(update);
     observer.observe(el);
-    if (offsetEl) observer.observe(offsetEl);   // si el navbar cambia de alto, se recalcula
+    if (offsetEl) observer.observe(offsetEl);
     window.addEventListener("resize", update);
     update();
     return () => {
@@ -46,7 +35,6 @@
     };
   }
 
-  /* Contenedor centrado reutilizable */
   const WRAP = "mx-auto max-w-[1280px] px-4 sm:px-10";
   const PROJECT_RATIO = "4/3";
 
@@ -66,7 +54,6 @@
     FlorVideo: `<img src="img/flor_personaje_videocv.svg" alt="Flor Video" class="h-full w-full">`,
   };
 
-  /* ---------- <rm-logo variant="icon|full"> ---------- */
   define("rm-logo", class extends RMElement {
     render() {
       const full = this.attr("variant") === "full";
@@ -83,20 +70,18 @@
     }
   });
 
-  /* ---------- <rm-image-placeholder src alt label ratio radius shape tone> ---------- */
   define("rm-image-placeholder", class extends RMElement {
     render() {
       const width = this.attr("width", "w-full max-w-[320px]");
       const height = this.attr("height", "h-auto");
-      const src = this.attr("src"); // Foto limpia (sin flor) para pantallas grandes
-      const srcMobile = this.attr("src-mobile", src); // Foto alternativa o la misma
-      const flower = this.attr("flower", "false") === "true"; // Si se quiere la flor encima del marco
+      const src = this.attr("src");
+      const srcMobile = this.attr("src-mobile", src);
+      const flower = this.attr("flower", "false") === "true";
       
       if (src) {
         this.innerHTML = `
           <div class="relative ${esc(width)} mx-auto flex flex-col items-center">
             
-            <!-- 1. Foto para Escritorio (md en adelante): Ya incluye la composición fija si es necesario -->
             <img 
               src="${esc(src)}" 
               alt="${esc(this.attr("alt"))}" 
@@ -104,7 +89,6 @@
               class="hidden lg:block w-full ${esc(height)} object-contain"
             />
 
-            <!-- 2. Foto para Móvil (lg en adelante): Versión limpia -->
             <div class="relative block lg:hidden w-full ${esc(height)}">
               <img 
                 src="${esc(srcMobile)}" 
@@ -113,7 +97,6 @@
                 class="w-full h-full object-contain"
               />
 
-              <!-- Flor encima del marco en pantallas móviles -->
               ${flower ? `<div class="absolute -left-4 -bottom-4 z-10 w-24 h-24">
                 ${IMAGES.Flor || `<img src="flor.svg" alt="Flor" class="w-full h-full object-contain">`}
               </div>` : ''}
@@ -138,7 +121,6 @@
   
 
 
-  /* ---------- <rm-button href variant="stack" size="sm" type> ---------- */
   define("rm-button", class extends RMElement {
     render() {
       const cls = [
@@ -153,7 +135,6 @@
     }
   });
 
-  /* ---------- <rm-navbar> con <a> hijos ---------- */
 define("rm-navbar", class extends RMElement {
   render() {
     this.className = "sticky top-0 z-50 block";
@@ -186,13 +167,12 @@ define("rm-navbar", class extends RMElement {
 
     btn.addEventListener("click", () => toggle(list.classList.contains("hidden")));
 
-    // Solución al scroll bidireccional (arriba y abajo) con elementos sticky
     list.addEventListener("click", (e) => {
       const link = e.target.closest("a");
       if (!link) return;
 
       const targetId = link.getAttribute("href");
-      toggle(false); // Cierra menú móvil
+      toggle(false);
 
       if (targetId && targetId.startsWith("#")) {
         e.preventDefault();
@@ -204,25 +184,20 @@ define("rm-navbar", class extends RMElement {
 
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
-          // 1. Seleccionar todas las secciones con clase sticky o componentes que las contienen
           const stickySections = document.querySelectorAll("rm-hero, rm-about, rm-video-intro, rm-portfolio-header, rm-portfolio-sections");
 
-          // 2. Pausar temporalmente el comportamiento sticky
           stickySections.forEach((sec) => {
             sec.style.position = "static";
           });
 
-          // 3. Obtener la posición exacta en el árbol de elementos
           const navbarHeight = this.getBoundingClientRect().height;
           const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - navbarHeight;
 
-          // 4. Realizar el desplazamiento suave
           window.scrollTo({
             top: targetTop,
             behavior: "smooth"
           });
 
-          // 5. Restaurar el comportamiento sticky al finalizar la animación (600ms)
           setTimeout(() => {
             stickySections.forEach((sec) => {
               sec.style.position = "";
@@ -234,7 +209,6 @@ define("rm-navbar", class extends RMElement {
   }
 });
 
-  /* ---------- <rm-hero> ---------- */
   define("rm-hero", class extends RMElement {
     render() {
       this.className = "sticky block";  
@@ -248,26 +222,24 @@ define("rm-navbar", class extends RMElement {
         this._stop = observeSectionHeight(
           this,
           (top) => { this.style.top = `${top}px`; },
-          document.querySelector("rm-navbar")        // <- offset
+          document.querySelector("rm-navbar")
         );
     }
     disconnectedCallback() { this._stop?.(); }
   });
 
-  /* ---------- <rm-about heading role photo photo-label> + <p> ---------- */
   define("rm-about", class extends RMElement {
     render() {
       this.className = "sticky block";
 
-      // Extracción limpia de atributos para simplificar la plantilla
       const heading = esc(this.attr("heading"));
       const role = esc(this.attr("role"));
       const photo = esc(this.attr("photo"));
-      const photoMobile = esc(this.attr("photo-mobile", photo)); // Foto alternativa para móviles
+      const photoMobile = esc(this.attr("photo-mobile", photo));
       const photoLabel = esc(this.attr("photo-label", "Foto de perfil"));
       const width = esc(this.attr("width"));
       const height = esc(this.attr("height"));
-      const flower = this.attr("flower", "false") === "true"; // Si se quiere la flor encima del marco
+      const flower = this.attr("flower", "false") === "true";
 
       this.innerHTML = `
         <section id="sobre-mi" 
@@ -289,7 +261,7 @@ define("rm-navbar", class extends RMElement {
       this._stop = observeSectionHeight(
         this,
         (top) => { this.style.top = `${top}px`; },
-        document.querySelector("rm-navbar") // Offset para navegación pegajosa
+        document.querySelector("rm-navbar")
       );
     }
 
@@ -298,26 +270,22 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-video-intro heading cv> ---------- */
   define("rm-video-intro", class extends RMElement {
     render() {
       this.className = "sticky block";
       
-      const videoSrc = esc(this.attr("video-src")); // URL del video (opcional por ahora)
-      const poster = esc(this.attr("poster", "img/ReMeraki_Portada.png")); // Imagen de portada dentro del monitor
+      const videoSrc = esc(this.attr("video-src"));
+      const poster = esc(this.attr("poster", "img/ReMeraki_Portada.png"));
       const heading = esc(this.attr("heading", "¡Conóceme mejor!"));
       const cvHref = esc(this.attr("cv", "#"));
 
       this.innerHTML = `
         <section class="bg-cream px-4 pb-14 pt-14 text-center h-auto sm:h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)] flex flex-col justify-center items-center">
           
-          <!-- Contenedor Principal del Monitor -->
           <div class="relative w-full max-w-[520px] mx-auto mb-8">
             
-            <!-- 1. Estructura del Monitor -->
             <div class="relative z-10 w-full rounded-[18px] border-[3px] border-olive/30 bg-cream p-3 shadow-sm">
               
-              <!-- Pantalla del Monitor -->
               <div class="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-wine flex items-center justify-center">
                 ${
                   videoSrc
@@ -329,22 +297,18 @@ define("rm-navbar", class extends RMElement {
                 }
               </div>
 
-              <!-- Cámara del monitor (punto superior) -->
               <div class="absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-olive-dark/40"></div>
             </div>
 
-            <!-- Base y Pie del Monitor -->
             <div class="mx-auto h-[40px] w-[80px] bg-wine-dark [clip-path:polygon(30%_0,70%_0,100%_100%,0_100%)]"></div>
             <div class="mx-auto h-[8px] w-[130px] rounded-full bg-wine-dark -mt-1"></div>
 
-            <!-- 2. Personaje con Botas (Más grande y desplazado hacia la derecha) -->
             <div class="absolute -right-12 -bottom-2 sm:-right-24 sm:-bottom-4 z-20 w-44 sm:w-[220px] pointer-events-none">
               ${IMAGES.FlorVideo || `<img src="img/flor_botas_personaje.svg" alt="Personaje ReMeraki" class="w-full h-auto object-contain">`}
             </div>
 
           </div>
 
-          <!-- Textos y Botón -->
           <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-wine">${heading}</h2>
           <p class="mx-auto mb-6 max-w-[560px] text-[clamp(0.95rem,1.5vw,1.1rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
           <rm-button size="sm" href="${cvHref}">Descargar CV</rm-button>
@@ -364,13 +328,11 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-portfolio-header title subtitle href> ---------- */
   define("rm-portfolio-header", class extends RMElement {
     render() {
       this.className = "sticky block";
       this.innerHTML = `
         <section id="portafolio" class="relative overflow-hidden bg-wine text-cream">
-          <!-- Imagen de marcas/símbolos encajada para conservar los bordes -->
           <img 
             src="img/simbolos_portafolio.png" 
             alt="" 
@@ -378,7 +340,6 @@ define("rm-navbar", class extends RMElement {
             class="pointer-events-none absolute inset-0 h-full w-full object-contain object-center opacity-90 scale-110 sm:scale-100"
           />
 
-          <!-- Contenido principal -->
           <div class="${WRAP} relative z-10 flex flex-col justify-center py-[72px] h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)]">
             <h2 class="font-display text-[clamp(3.5rem,11vw,9rem)] font-bold leading-none tracking-tighter">${esc(this.attr("title"))}</h2>
             <p class="mb-6 mt-2 font-display text-[clamp(1.1rem,2.5vw,1.8rem)] opacity-90">${esc(this.attr("subtitle"))}</p>
@@ -399,7 +360,6 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-section-title title tone="olive|wine"> ---------- */
   define("rm-section-title", class extends RMElement {
     render() {
       const wine = this.attr("tone", "olive") === "wine";
@@ -407,7 +367,6 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-project-grid cols="2|3"> ---------- */
   define("rm-project-grid", class extends RMElement {
     connectedCallback() {
       const cols = { 1: "md:grid-cols-1", 2: "md:grid-cols-2", 3: "md:grid-cols-3" }[this.attr("cols", "2")];
@@ -415,7 +374,6 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-project-card title href src ratio label radius> texto ---------- */
   define("rm-project-card", class extends RMElement {
     render() {
       const text = this._content.trim();
@@ -423,7 +381,6 @@ define("rm-navbar", class extends RMElement {
       const radius = esc(this.attr("radius", "18px"));
       const src = this.attr("src");
 
-      // Con imagen: <img> con proporción fija. Sin imagen: el placeholder de siempre.
       const media = src
         ? `<img src="${esc(src)}" alt="${esc(this.attr("title"))}" loading="lazy"
             style="aspect-ratio:${ratio.replace("/", " / ")};border-radius:${radius}"
@@ -441,7 +398,6 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-portfolio-sections> ---------- */
   define("rm-portfolio-sections", class extends RMElement {
     render() {
       this.className = "sticky block";
@@ -464,7 +420,6 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-contact-form heading> ---------- */
   define("rm-contact-form", class extends RMElement {
     render() {
       this.className = "sticky block";
@@ -518,7 +473,6 @@ define("rm-navbar", class extends RMElement {
     }
   });
 
-  /* ---------- <rm-footer email phone instagram behance linkedin> ---------- */
   define("rm-footer", class extends RMElement {
   render() {
     this.className = "sticky block";

@@ -1,21 +1,13 @@
-/* Estilos mínimos que Tailwind no cubre (el resto va con clases en components.js) */
-
-/* Los custom elements se comportan como bloques */
 rm-navbar, rm-hero, rm-about, rm-video-intro, rm-portfolio-header,
 rm-section-title, rm-project-grid, rm-project-card, rm-contact-form,
 rm-footer, rm-image-placeholder, rm-logo { display: block; }
 rm-button { display: inline-block; }
 
 html { scroll-behavior: smooth; }
-html { scroll-padding-top: 90px; }  /* ajusta al alto real de tu navbar */
+html { scroll-padding-top: 90px; }  
 
-/* Placeholder de imagen: rayas suaves */
-.ph {
-  background-image: repeating-linear-gradient(45deg, transparent 0 14px, rgba(0,0,0,.035) 14px 28px);
-}
 
-/* Círculos decorativos del encabezado del portafolio */
 .deco-ring { border: 40px solid rgba(0,0,0,.12); border-radius: 9999px; }
 
-/* Fondo del formulario de contacto */
+/* Fondo del formulario*/
 .bg-contact { background: linear-gradient(135deg, #e8a8bb, #c2597d 60%, #d98aa5); }
