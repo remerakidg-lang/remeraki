@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReMeraki — Hecho con diseño</title>
+  <meta name="description" content="Portafolio de Jennifer Maya, diseñadora gráfica e ilustradora.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: { DEFAULT: "#F3F2CF", soft: "#ebeac4" }, 
+            olive: { DEFAULT: "#53591F", dark: "#46501a" }, 
+            wine: { DEFAULT: "#7F1433", dark: "#650e28" },  
+            ink: "#270B10",                                 
+            ph: { DEFAULT: "#d9d8b0", line: "#b5b389" },
+          },
+          fontFamily: {
+            display: ["Manjari", "sans-serif"],            
+            body: ["Quicksand", "sans-serif"],             
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Carga primero los datos -->
+  <script src="constants/portafolio.js"></script> 
+
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="components.js" defer></script>
+</head>
+<body class="bg-cream font-body leading-normal text-ink">
+
+  <rm-navbar variant="full">
+    <a href="#inicio">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#portafolio">Portafolio</a>
+    <a href="#contacto">Contacto</a>
+  </rm-navbar>
+  
+
+  <rm-hero>
+    <div class="justify-items-center self-center text-center
+            sm:justify-items-start lg:self-end sm:text-left
+            [&_h2]:mb-2 [&_h2]:text-[clamp(1.35rem,0.67rem+2.13vw,3rem)] [&_h2]:font-semibold [&_h2]:leading-tight [&_h2]:text-wine
+            [&_p]:mb-3 [&_p]:text-[clamp(1rem,0.66rem+1.06vw,1.5rem)] [&_p]:max-w-[34ch]">
+      <h2 class="justify-self-center sm:justify-self-start sm:self-end">Diseñadora gráfica e ilustración con alma</h2>
+      <p class="justify-self-center sm:justify-self-start sm:self-end">Doy vida a proyectos visuales combinando rigor tipográfico, narrativa ilustrada y una profunda pasión por el detalle.</p>
+      <p class="justify-self-center sm:justify-self-start sm:self-end">Cada proyecto que pasa por mis manos lleva el sello de un proceso cuidado: Hecho con diseño.</p>
+    </div>
+  </rm-hero>
+
+  <rm-about heading="Hola, soy Jennifer Maya" role="Diseñadora gráfica e ilustradora" photo-label="Foto de Jennifer" photo="img/foto_jenn.png" photo-mobile="img/foto.png" width="w-5/6 sm:w-2/3 md:w-1/2 lg:w-full" flower="true">
+    <p>Mi enfoque nace de meraki, esa palabra griega que significa poner el alma, la creatividad y el amor en todo lo que haces. De ahí surge ReMeraki como mi compromiso de rediseñar, reinventar y crear siempre con mayor intensidad.</p>
+    <p>Me mueve la versatilidad, la imaginación continua y la convicción de que los objetos editoriales se habitan.</p>
+    <p>A lo largo de mi formación y experiencia he aprendido que el buen diseño es una mezcla de sensibilidad artística con ejecución técnica impecable.</p>
+  </rm-about>
+
+  <rm-video-intro heading="¡Conóceme mejor!" poster="img/ReMeraki_Logo.svg" cv="cv.pdf">
+    Dale play para ver un recorrido por mis habilidades y algunos proyectos, o visita mi currículum para más información.
+  </rm-video-intro>
+
+  <rm-portfolio-header title="Portafolio" subtitle="Un recorrido por ReMeraki" href="portafolio.pdf"></rm-portfolio-header>
+
+  <rm-portfolio-sections></rm-portfolio-sections>
+
+
+  <rm-contact-form heading="¿Trabajamos juntos?" email="remerakidg@gmail.com"></rm-contact-form>
+
+  <rm-footer
+    email="remerakidg@gmail.com"
+    phone="(+52)7151451705"
+    instagram="https://www.instagram.com/remeraki_dg?dlrf=N2U1djRyNDFtcWNq" behance="https://www.behance.net/remeraki" linkedin="https://www.linkedin.com/in/jennifer-maya-7870ab431">
+  </rm-footer>
+
+</body>
+</html>
