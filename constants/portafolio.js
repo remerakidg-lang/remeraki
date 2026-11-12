@@ -9,7 +9,7 @@ const PORTFOLIO_DATA = [
         title: "Revista “Just A Girl” | Proyecto colaborativo con Horuc y Tanea",
         ratio: "16/9",
         label: "Revista Just A Girl",
-        href: "#",
+        href: "https://www.behance.net/gallery/258192921/Just-A-Girl",
         src: "img/revista_mockup.jpg",
         description: "Diseñada desde cero por y para chicas que estuvieron comenzando sus veintes, con el fin de crear un material a la moda, amistoso y empático."
       },
