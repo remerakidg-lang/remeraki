@@ -49,7 +49,7 @@ const PORTFOLIO_DATA = [
         ratio: "4/3",
         label: "Ilustración estilo",
         href: "https://www.instagram.com/p/Df0ESj-lIvu/?utm_source=ig_web_copy_link&dlrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
-        src: "img/ilustracion_mockup.jpg",
+        src: "img/ilustracion_mockup.webp",
         description: "A partir de la palabra “bestiario” combinada con el estilo “impresionismo”, surgió la anterior ilustración."
       }
     ]
