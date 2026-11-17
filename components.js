@@ -335,7 +335,7 @@ define("rm-navbar", class extends RMElement {
             src="img/simbolos_portafolio.png" 
             alt="" 
             aria-hidden="true" 
-            class="pointer-events-none absolute inset-0 h-full w-full object-contain object-center opacity-90 scale-110 sm:scale-100"
+            class="pointer-events-none absolute inset-0 w-full object-contain object-center opacity-90 scale-110 sm:scale-100"
           />
 
           <div class="${WRAP} relative z-10 flex flex-col justify-center py-[72px] h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)]">
