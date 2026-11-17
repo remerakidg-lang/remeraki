@@ -432,7 +432,7 @@ define("rm-navbar", class extends RMElement {
       
       const destinationEmail = this.attr("email", "remerakidg@gmail.com");
 
-      this.innerHTML = `<section id="contacto" class="bg-contact px-4 pb-5 pt-14 sm:px-10">
+      this.innerHTML = `<section id="contacto" class="bg-cover bg-center bg-no-repeat px-4 pb-5 pt-14 sm:px-10" style="background-image: url('img/fondo2.webp');">
         <div class="mx-auto grid max-w-[1280px] items-end gap-8 md:grid-cols-[1.1fr_1fr]">
           <form action="https://formsubmit.co/${esc(destinationEmail)}" method="POST" class="max-w-[560px] rounded-[26px] bg-cream px-8 pb-8 pt-7">
             <!-- Configuración de FormSubmit -->
