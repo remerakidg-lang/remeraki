@@ -309,7 +309,7 @@ define("rm-navbar", class extends RMElement {
 
           <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-wine">${heading}</h2>
           <p class="mx-auto mb-6 max-w-[560px] text-[clamp(0.95rem,1.5vw,1.1rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
-          <rm-button size="sm" href="${cvHref}">Descargar CV</rm-button>
+          <rm-button size="sm" href="documentos/Maya-Jennifer-Curriculum.pdf">Descargar CV</rm-button>
           
         </section>`;
 
