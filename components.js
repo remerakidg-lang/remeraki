@@ -453,7 +453,7 @@ define("rm-navbar", class extends RMElement {
               <button type="submit" class="inline-block rounded-full bg-olive px-10 py-2.5 font-semibold text-cream transition hover:-translate-y-0.5 hover:bg-olive-dark cursor-pointer">Hagámoslo</button>
             </div>
           </form>
-          <div class="w-full max-w-[320px] justify-self-center">
+          <div class="w-full max-w-[320px] justify-left">
             <rm-image-placeholder src="img/personaje3.png" tone="dark" ratio="3/4" label="Ilustración / mascota"></rm-image-placeholder>
           </div>
         </div></section>`;
