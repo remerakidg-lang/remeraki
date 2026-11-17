@@ -85,7 +85,6 @@
             <img 
               src="${esc(src)}" 
               alt="${esc(this.attr("alt"))}" 
-              loading="lazy" 
               class="hidden lg:block w-full ${esc(height)} object-contain"
             />
 
@@ -93,7 +92,6 @@
               <img 
                 src="${esc(srcMobile)}" 
                 alt="${esc(this.attr("alt"))}" 
-                loading="lazy" 
                 class="w-full h-full object-contain"
               />
 
@@ -382,7 +380,7 @@ define("rm-navbar", class extends RMElement {
       const src = this.attr("src");
 
       const media = src
-        ? `<img src="${esc(src)}" alt="${esc(this.attr("title"))}" loading="lazy"
+        ? `<img src="${esc(src)}" alt="${esc(this.attr("title"))}"
             style="aspect-ratio:${ratio.replace("/", " / ")};border-radius:${radius}"
             class="block w-full object-cover">`
         : `<rm-image-placeholder ratio="${ratio}" radius="${radius}" width="w-full"
