@@ -10,7 +10,7 @@ const PORTFOLIO_DATA = [
         ratio: "16/9",
         label: "Revista Just A Girl",
         href: "https://www.behance.net/gallery/258192921/Just-A-Girl",
-        src: "img/revista_mockup.jpg",
+        src: "img/revista_mockup.webp",
         description: "Diseñada desde cero por y para chicas que estuvieron comenzando sus veintes, con el fin de crear un material a la moda, amistoso y empático."
       },
       {
@@ -18,7 +18,7 @@ const PORTFOLIO_DATA = [
         ratio: "16/9",
         label: "Libro de arte",
         href: "https://www.instagram.com/p/DfqWzqlFd5i/?utm_source=ig_web_copy_link&rpxt=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
-        src: "img/libro_mockup.jpg",
+        src: "img/libro_mockup.webp",
         description: "La combinación entre información, poesía y naturaleza maquetada a través de varias páginas aprovechando al máximo su esplendor."
       }
     ]
@@ -33,7 +33,7 @@ const PORTFOLIO_DATA = [
         ratio: "1/1",
         label: "Libro-álbum",
         href: "https://www.behance.net/gallery/258164029/El-cuento-de-la-madeja-de-lana-azul",
-        src: "img/ilus_editorial.JPG",
+        src: "img/ilus_editorial.webp",
         description: "Se representó “El cuento de la madeja de Lana Azul” mediante ilustración para un libro-álbum."
       },
       {
@@ -41,7 +41,7 @@ const PORTFOLIO_DATA = [
         ratio: "4/3",
         label: "Empaque Matchni",
         href: "https://www.instagram.com/p/Dfvetd5FXG-/?utm_source=ig_web_copy_link&dlrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==",
-        src: "img/ilustracion.jpg",
+        src: "img/ilustracion.webp",
         description: "A raíz de la propuesta de un producto exótico, se desarrollaron las ilustraciones para aplicación en empaque y stand."
       },
       {
@@ -64,7 +64,7 @@ const PORTFOLIO_DATA = [
         ratio: "16/9",
         label: "Identidad ReMeraki",
         href: "https://www.behance.net/gallery/257530323/Proceso-de-ReMeraki",
-        src: "img/letrero_mockup.jpg",
+        src: "img/letrero_mockup.webp",
         description: "Para mostrar una imagen representativa y profesional como diseñadora gráfica e ilustradora, se llevó a cabo la conceptualización y creación de ReMeraki."
       },
       {
@@ -72,7 +72,7 @@ const PORTFOLIO_DATA = [
         ratio: "16/9",
         label: "Rediseño Luizzas",
         href: "https://www.behance.net/gallery/258477815/Rebranding-Luizzas",
-        src: "img/pizzacaja_mockup.jpg",
+        src: "img/pizzacaja_mockup.webp",
         description: "Como equipo que conoce esta pizzería, llegamos a un acuerdo con el dueño para rediseñar su identidad, unificarla y darle un enfoque determinado para el público al cual va dirigido."
       }
     ]
