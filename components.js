@@ -248,6 +248,7 @@ define("rm-navbar", class extends RMElement {
               <h2 class="font-display text-cream text-[clamp(1.1rem,0.67rem+2.13vw,3rem)] font-semibold">${heading}</h2>
               <h3 class="mb-5 mt-1 text-cream-soft text-[clamp(0.8rem,0.85rem+0.94vw,2rem)] font-semibold">${role}</h3>
               ${this._content}
+              <rm-button size="sm" href="documentos/Maya-Jennifer-Curriculum.pdf">Descargar CV</rm-button>
             </div>
             <div class="w-full justify-self-center md:justify-self-start">
               <rm-image-placeholder tone="dark" src="${photo}" alt="${heading}" label="${photoLabel}" src-mobile="${photoMobile}" radius="0" width="${width}" height="${height} " flower=${flower}></rm-image-placeholder>
@@ -309,7 +310,6 @@ define("rm-navbar", class extends RMElement {
 
           <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-wine">${heading}</h2>
           <p class="mx-auto mb-6 max-w-[560px] text-[clamp(0.95rem,1.5vw,1.1rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
-          <rm-button size="sm" href="documentos/Maya-Jennifer-Curriculum.pdf">Descargar CV</rm-button>
           
         </section>`;
 
