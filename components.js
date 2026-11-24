@@ -258,9 +258,9 @@ define("rm-navbar", class extends RMElement {
           style="background-image: url('img/fondo1.jpg');" 
           class="bg-olive bg-cover bg-center text-cream lg:pb-8 xl:pb-0 h-auto sm:h-[calc(100vh-90px)] md:h-[calc(96vh-90px)] xl:h-[calc(100vh-90px)]">
           <div class="${WRAP} lg:px-0 grid items-center gap-12 py-14 lg:grid-cols-[1.3fr_1fr]">
-            <div class="lg:justify-self-end text-center lg:text-right [&_p]:mb-3.5 [&_p]:text-[clamp(0.8rem,0.66rem+1.06vw,1.1rem)] [&_p]:opacity-90">
-              <h2 class="font-display text-cream text-[clamp(1.1rem,0.67rem+2.13vw,.7rem)] font-semibold">${heading}</h2>
-              <h3 class="mb-5 mt-1 text-cream-soft text-[clamp(0.8rem,0.85rem+0.94vw,1.2rem)] font-semibold">${role}</h3>
+            <div class="lg:justify-self-end text-center lg:text-right [&_p]:mb-3.5 [&_p]:text-[clamp(0.7rem,0.66rem+1.06vw,1.5rem)] [&_p]:opacity-90">
+              <h2 class="font-display text-cream text-[clamp(1.1rem,0.67rem+2.13vw,1.2rem)] font-semibold">${heading}</h2>
+              <h3 class="mb-5 mt-1 text-cream-soft text-[clamp(0.8rem,0.85rem+0.94vw,1.1rem)] font-semibold">${role}</h3>
               ${this._content}
               <rm-button-wine size="sm" href="documentos/Maya-Jennifer-Curriculum.pdf">Descargar CV</rm-button>
             </div>
@@ -322,8 +322,8 @@ define("rm-navbar", class extends RMElement {
 
           </div>
 
-          <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-wine">${heading}</h2>
-          <p class="mx-auto mb-6 max-w-[560px] text-[clamp(0.95rem,1.5vw,1.1rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
+          <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,1.5rem)] font-bold text-wine">${heading}</h2>
+          <p class="mx-auto mb-6 max-w-[560px] text-[clamp(0.95rem,1.5vw,1rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
           
         </section>`;
 
@@ -352,7 +352,7 @@ define("rm-navbar", class extends RMElement {
             class="pointer-events-none absolute inset-0 w-full object-contain object-center opacity-90 scale-110 sm:scale-100"
           />
 
-          <div class="${WRAP} relative z-10 flex flex-col justify-center py-[72px] h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)] flex gap-4">
+          <div class="${WRAP} relative z-10 flex flex-row gap-6 justify-center py-[72px] h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)]">
             <h2 class="font-display text-[clamp(3.5rem,11vw,9rem)] font-bold leading-none tracking-tighter">${esc(this.attr("title"))}</h2>
             <p class="mb-6 mt-2 font-display text-[clamp(1.1rem,2.5vw,1.8rem)] opacity-90">${esc(this.attr("subtitle"))}</p>
             <rm-button variant="stack" href="${esc(this.attr("href", "documentos/ReMeraki_Portafolio.pdf"))}">Descargar<br>portafolio</rm-button>
