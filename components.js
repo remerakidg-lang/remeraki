@@ -288,7 +288,7 @@ define("rm-navbar", class extends RMElement {
       this.className = "sticky block";
       
       const videoSrc = esc(this.attr("video-src"));
-      const poster = esc(this.attr("poster", "img/ReMeraki_Portada.png"));
+      const poster = esc(this.attr("poster", "img/remeraki-jpg"));
       const heading = esc(this.attr("heading", "¡Conóceme mejor!"));
       const cvHref = esc(this.attr("cv", "#"));
 
