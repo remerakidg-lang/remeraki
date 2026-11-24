@@ -256,9 +256,9 @@ define("rm-navbar", class extends RMElement {
       this.innerHTML = `
         <section id="sobre-mi" 
           style="background-image: url('img/fondo1.jpg');" 
-          class="bg-olive bg-cover bg-center text-cream lg:pb-8 xl:pb-0 h-auto sm:h-[calc(100vh-90px)] md:h-[calc(96vh-90px)] xl:h-[calc(100vh-90px)]">
+          class="bg-olive bg-cover bg-center text-cream lg:pb-8 xl:pb-0 h-auto sm:min-h-[calc(100vh-90px)] md:min-h-[calc(96vh-90px)] xl:min-h-[calc(100vh-90px)]">
           <div class="${WRAP} lg:px-0 grid items-center gap-12 pt-4 pb-14 lg:grid-cols-[1.3fr_1fr]">
-            <div class="lg:justify-self-end text-center lg:text-right [&_p]:mb-3.5 [&_p]:text-[clamp(.88rem,0.66rem+1.06vw,1.3rem)] [&_p]:opacity-90">
+            <div class="lg:justify-self-end text-center lg:text-right [&_p]:mb-3.5 [&_p]:text-[clamp(.88rem,0.66rem+1.06vw,1.2rem)] [&_p]:opacity-90">
               <h2 class="font-display text-cream text-[clamp(1.3rem,0.67rem+2.13vw,1.5rem)] font-semibold">${heading}</h2>
               <h3 class="mb-5 mt-1 text-cream-soft text-[clamp(0.8rem,0.85rem+0.94vw,1.1rem)] font-semibold">${role}</h3>
               ${this._content}
@@ -322,8 +322,8 @@ define("rm-navbar", class extends RMElement {
 
           </div>
 
-          <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,1.5rem)] font-bold text-wine">${heading}</h2>
-          <p class="mx-auto mb-6 max-w-[560px] text-[clamp(0.95rem,1.5vw,1rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
+          <h2 class="mb-2 font-display text-[clamp(1.5rem,3vw,1.6rem)] font-bold text-wine">${heading}</h2>
+          <p class="mx-auto mb-6 max-w-[560px] text-[clamp(1rem,1.5vw,1.2rem)] text-ink opacity-90 leading-relaxed">${this._content}</p>
           
         </section>`;
 
@@ -357,7 +357,7 @@ define("rm-navbar", class extends RMElement {
             <p class="mb-6 mt-2 font-display text-[clamp(1.1rem,2.5vw,1.8rem)] opacity-90">${esc(this.attr("subtitle"))}</p>
             <div class="flex gap-4">
             <rm-button variant="stack" href="${esc(this.attr("href", "documentos/ReMeraki_Portafolio.pdf"))}">Descargar<br>portafolio</rm-button>
-            <rm-button variant="stack"  href="${esc(this.attr("href", "https://heyzine.com/flip-book/47543184a6.html"))}"))}">Visualizar flipbook</rm-button>
+            <rm-button variant="stack"  href="${esc(this.attr("href", "https://heyzine.com/flip-book/47543184a6.html"))}"))}">Visualizar<br>flipbook</rm-button>
           </div>
           </div>
         </section>`;
