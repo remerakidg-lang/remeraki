@@ -352,11 +352,11 @@ define("rm-navbar", class extends RMElement {
             class="pointer-events-none absolute inset-0 w-full object-contain object-center opacity-90 scale-110 sm:scale-100"
           />
 
-          <div class="${WRAP} relative z-10 flex flex-col justify-center py-[72px] h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)]">
+          <div class="${WRAP} relative z-10 flex flex-col justify-center py-[72px] h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)] flex gap-4">
             <h2 class="font-display text-[clamp(3.5rem,11vw,9rem)] font-bold leading-none tracking-tighter">${esc(this.attr("title"))}</h2>
             <p class="mb-6 mt-2 font-display text-[clamp(1.1rem,2.5vw,1.8rem)] opacity-90">${esc(this.attr("subtitle"))}</p>
             <rm-button variant="stack" href="${esc(this.attr("href", "documentos/ReMeraki_Portafolio.pdf"))}">Descargar<br>portafolio</rm-button>
-            <rm-button variant="stack"  href="${esc(this.attr("href", "https://heyzine.com/flip-book/47543184a6.html"))}"))}">Visualizar flipbook<br>portafolio</rm-button>
+            <rm-button variant="stack"  href="${esc(this.attr("href", "https://heyzine.com/flip-book/47543184a6.html"))}"))}">Visualizar flipbook</rm-button>
           </div>
         </section>`;
 
