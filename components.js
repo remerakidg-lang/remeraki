@@ -293,7 +293,7 @@ define("rm-navbar", class extends RMElement {
       const cvHref = esc(this.attr("cv", "#"));
 
       this.innerHTML = `
-        <section class="bg-cream px-4 pb-14 pt-14 text-center h-auto sm:h-[calc(100vh-90px)] xl:h-[calc(100vh-90px)] flex flex-col justify-center items-center">
+        <section class="bg-cream px-4 pb-10 pt-4 text-center h-auto sm:h-[calc(100vh-90px)] min:h-[calc(100vh-90px)] flex flex-col justify-center items-center">
           
           <div class="relative w-full max-w-[520px] mx-auto mb-8">
             
