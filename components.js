@@ -133,6 +133,20 @@
     }
   });
 
+    define("rm-button-wine", class extends RMElement {
+    render() {
+      const cls = [
+        "inline-block rounded-full bg-wine font-semibold text-cream transition hover:-translate-y-0.5 hover:bg-wine-dark cursor-pointer",
+        this.attr("size") === "sm" ? "px-7 py-2" : "px-10 py-2.5",
+        this.attr("variant") === "stack" ? "!px-6 !py-3 text-center leading-tight" : "",
+      ].join(" ");
+      const href = this.attr("href");
+      this.innerHTML = href
+        ? `<a href="${esc(href)}" class="${cls}">${this._content}</a>`
+        : `<button type="${esc(this.attr("type", "button"))}" class="${cls}">${this._content}</button>`;
+    }
+  });
+
 define("rm-navbar", class extends RMElement {
   render() {
     this.className = "sticky top-0 z-50 block";
