@@ -300,14 +300,19 @@ define("rm-navbar", class extends RMElement {
             <div class="relative z-10 w-full rounded-[18px] border-[3px] border-olive/30 bg-cream p-3 shadow-sm">
               
               <div class="relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-wine flex items-center justify-center">
-                ${
-                  videoSrc
-                    ? `<iframe src="${videoSrc}" class="w-full h-full" frameborder="0" allowfullscreen></iframe>`
-                    : `<img src="${poster}" alt="Portada ReMeraki" class="w-full h-full object-cover">
-                      <div class="absolute inset-0 flex items-center justify-center bg-black/10 transition hover:bg-black/20 cursor-pointer">
-                        <span class="flex h-14 w-14 items-center justify-center rounded-full bg-cream text-wine text-2xl shadow-lg pl-1">▶</span>
-                      </div>`
-                }
+              ${
+                videoSrc 
+                ? `<a href="${videoSrc.replace('/embed/', '/watch?v=').split('?')[0]}"
+                class="glightbox block w-full h-full"
+                data-type="video"
+                data-glightbox="width: 90vw; height: 90vh;">
+                <img src="${poster}" alt="Portada ReMeraki" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center bg-black/10 transition hover:bg-black/20">
+             <span class="flex h-14 w-14 items-center justify-center rounded-full bg-cream text-wine text-2xl shadow-lg pl-1">▶</span>
+           </div>
+         </a>`
+      : `<img src="${poster}" alt="Portada ReMeraki" class="w-full h-full object-cover">`
+  }
               </div>
 
               <div class="absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-olive-dark/40"></div>
