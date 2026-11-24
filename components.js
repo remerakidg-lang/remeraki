@@ -262,7 +262,7 @@ define("rm-navbar", class extends RMElement {
               <h2 class="font-display text-cream text-[clamp(1.1rem,0.67rem+2.13vw,3rem)] font-semibold">${heading}</h2>
               <h3 class="mb-5 mt-1 text-cream-soft text-[clamp(0.8rem,0.85rem+0.94vw,2rem)] font-semibold">${role}</h3>
               ${this._content}
-              <rm-button size="sm" href="documentos/Maya-Jennifer-Curriculum.pdf">Descargar CV</rm-button>
+              <rm-button-wine size="sm" href="documentos/Maya-Jennifer-Curriculum.pdf">Descargar CV</rm-button>
             </div>
             <div class="w-full justify-self-center md:justify-self-start">
               <rm-image-placeholder tone="dark" src="${photo}" alt="${heading}" label="${photoLabel}" src-mobile="${photoMobile}" radius="0" width="${width}" height="${height} " flower=${flower}></rm-image-placeholder>
